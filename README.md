@@ -13,6 +13,8 @@ OSC<->MCU translation is handled in the custom module. Widgets must have the mid
 
 Minimum resolution: 1366x768
 
+![](screenshot.png)
+
 ## OSC Reference
 
 ```
