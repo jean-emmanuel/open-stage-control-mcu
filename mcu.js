@@ -116,111 +116,128 @@ function mcuToOsc(host, port, address, args) {
 
         var [channel, note, value] = inArgs
 
-        if (note < 8) {
-            action = 'rec'
-            outArgs.push(note % 8 + 1)
-        } else if (note < 16) {
-            action = 'solo'
-            outArgs.push(note % 8 + 1)
-        } else if (note < 24) {
-            action = 'mute'
-            outArgs.push(note % 8 + 1)
-        } else if (note < 32) {
-            action = 'sel'
-            outArgs.push(note % 8 + 1)
-        } else if (note < 40) {
-            action = 'vpot_click'
-            outArgs.push(note % 8 + 1)
-        } else if (NOTES_TO_ACTIONS[note]) {
-            action = NOTES_TO_ACTIONS[note]
+        if (channel === 1) {
+
+            if (note < 8) {
+                action = 'rec'
+                outArgs.push(note % 8 + 1)
+            } else if (note < 16) {
+                action = 'solo'
+                outArgs.push(note % 8 + 1)
+            } else if (note < 24) {
+                action = 'mute'
+                outArgs.push(note % 8 + 1)
+            } else if (note < 32) {
+                action = 'sel'
+                outArgs.push(note % 8 + 1)
+            } else if (note < 40) {
+                action = 'vpot_click'
+                outArgs.push(note % 8 + 1)
+            } else if (NOTES_TO_ACTIONS[note]) {
+                action = NOTES_TO_ACTIONS[note]
+            }
+
+            outArgs.push(value / 127)
+
         }
-
-        outArgs.push(value / 127)
-
 
     // CONTROL CHANGE
     } else if (address === '/control') {
 
         var [channel, control, value] = inArgs
 
-        if (control > 15 && control < 24) {
-            action = 'vpot_rotate'
-            outArgs.push(control % 8 + 1)
-            outArgs.push(value === 1 ? -1 : 1)
-        } else if (control > 47 && control < 56) {
-            action = 'vpot_led'
-            outArgs.push(control % 8 + 1)
 
-            var ctl = value >> 4,
-                firstLed = ctl >> 2,
-                mode = ctl & 3,
-                ledRaw = value & 0xF,
-                leds = Array(11).fill(0)
+        if (channel === 1) {
 
-            if (ledRaw) {
-                if (mode === 0) {                   // single led
-                    leds[ledRaw - 1] = 1
-                } else if (mode === 1) {            // pan
-                    var pan = ledRaw - 6
-                    if (pan < 0) {
-                        for (var i = pan; i <= 0; i++) {
-                            leds[i + 5] = 1
+            if (control > 15 && control < 24) {
+                action = 'vpot_rotate'
+                outArgs.push(control % 8 + 1)
+                outArgs.push(value === 1 ? -1 : 1)
+            } else if (control > 47 && control < 56) {
+                action = 'vpot_led'
+                outArgs.push(control % 8 + 1)
+
+                var ctl = value >> 4,
+                    firstLed = ctl >> 2,
+                    mode = ctl & 3,
+                    ledRaw = value & 0xF,
+                    leds = Array(11).fill(0)
+
+                if (ledRaw) {
+                    if (mode === 0) {                   // single led
+                        leds[ledRaw - 1] = 1
+                    } else if (mode === 1) {            // pan
+                        var pan = ledRaw - 6
+                        if (pan < 0) {
+                            for (var i = pan; i <= 0; i++) {
+                                leds[i + 5] = 1
+                            }
+                        } else {
+                            for (var i = pan; i >= 0; i--) {
+                                leds[i - 5] = 1
+                            }
                         }
-                    } else {
-                        for (var i = pan; i >= 0; i--) {
-                            leds[i - 5] = 1
+                    } else if (mode === 2) {            // level
+                        for (var i = 0; i < ledRaw; i++) {
+                            leds[i] = 1
                         }
-                    }
-                } else if (mode === 2) {            // level
-                    for (var i = 0; i < ledRaw; i++) {
-                        leds[i] = 1
-                    }
-                } else if (mode === 3) {            // spread
-                    leds[5] = 1
-                    if (ledRaw > 6 ) ledRaw = 6
-                    for (var i = 1; i < ledRaw; i++) {
-                        var offset = i - ledRaw
-                        leds[5 + offset] = 1
-                        leds[5 - offset] = 1
+                    } else if (mode === 3) {            // spread
+                        leds[5] = 1
+                        if (ledRaw > 6 ) ledRaw = 6
+                        for (var i = 1; i < ledRaw; i++) {
+                            var offset = i - ledRaw
+                            leds[5 + offset] = 1
+                            leds[5 - offset] = 1
+                        }
                     }
                 }
+
+                outArgs.push(firstLed, ...leds)
+
+            } else if (control > 63 && control < 74) {
+
+                var msb = value >> 4,
+                    val = value & 0xF
+
+                if (msb >> 2) val += '.'
+                if (!(msb & (1 << 1))) val = ''
+
+                action = 'timecode'
+                outArgs.push(73 - control, val)
+
+
             }
 
-            outArgs.push(firstLed, ...leds)
-
-        } else if (control === 60 && channel === 16) {
-            action = 'scrub_wheel'
-            outArgs.push(value === 1 ? -1 : 1)
-        } else if (control > 63 && control < 74) {
-            var msb = value >> 4,
-                val = value & 0xF
-
-            if (msb >> 2) val += '.'
-            if (!(msb & (1 << 1))) val = ''
-
-            action = 'timecode'
-            outArgs.push(73 - control, val)
-
+        // } else if (channel === 16 && control === 60) {
+        //     // nothing to update
+        //     action = 'scrub_wheel'
+        //     outArgs.push(value === 1 ? -1 : 1)
 
         }
+
 
     // CHANNEL PRESSURE
     } else if (address === '/channel_pressure') {
 
         var [channel, value] = inArgs
 
-        action = 'vu_meter'
-        outArgs.push((value >> 4) + 1) // msb: track number
-        outArgs.push((value & 0xF) / 12) // lsb: meter value
+        if (channel === 1) {
+            action = 'vu_meter'
+            outArgs.push((value >> 4) + 1) // msb: track number
+            outArgs.push((value & 0xF) / 12) // lsb: meter value
+        }
 
     // PITCHBEND
     } else if (address === '/pitch') {
 
         var [channel, value] = inArgs
 
-        action = 'fader'
-        outArgs.push(channel) // channel: track number
-        outArgs.push(value / 16383) // pitch: fader value
+        if (channel < 10) {
+            action = 'fader'
+            outArgs.push(channel) // channel: track number
+            outArgs.push(value / 16383) // pitch: fader value
+        }
+
 
     // SYSEX
     } else if (address === '/sysex') {
