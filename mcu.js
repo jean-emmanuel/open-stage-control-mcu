@@ -339,6 +339,30 @@ function oscToMcu(host, port, address, args) {
 
 }
 
+/*
+
+Custom module
+
+*/
+
+// check midi settings
+var midi = (settings.read('midi') || []).join('')
+if (!midi) {
+    console.warn('(WARNING, MCU) "midi" option not set')
+} else {
+    if (!midi.includes('sysex')) {
+        console.warn('(WARNING, MCU) "midi" sysex option not set')
+    }
+    if (!midi.includes(MIDI_DEVICE_NAME)) {
+        console.warn(`(WARNING, MCU) "midi" device "${MIDI_DEVICE_NAME}" not declared`)
+    }
+}
+
+// set midi target in interface
+app.on('sessionOpened', ()=>{
+    receive('/SET', 'midi_target', 'midi:' + MIDI_DEVICE_NAME)
+})
+
 
 module.exports = {
 
