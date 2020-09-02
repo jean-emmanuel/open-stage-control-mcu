@@ -15,6 +15,13 @@ Minimum resolution: 1366x768
 
 ![](screenshot.png)
 
+
+Note: if you want to send/receive unrelated MIDI messages through the same port, avoiding the following should be fine :
+- notes on channel 1
+- control changes on channel 1
+- channel pressure on channel 1
+- pitchbend on channels 1-9
+
 ## OSC Reference
 
 ```
