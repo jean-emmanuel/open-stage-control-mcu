@@ -158,7 +158,8 @@
                     },
                     "visible": true
                   }
-                }
+                },
+                "lineWidth": "auto"
               },
               {
                 "type": "panel",
@@ -272,7 +273,8 @@
                         "ignoreDefaults": false,
                         "vertical": false,
                         "wrap": false,
-                        "align": "center"
+                        "align": "center",
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -310,7 +312,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -348,7 +351,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -386,7 +390,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -424,7 +429,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -462,7 +468,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -500,10 +507,12 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       }
                     ],
-                    "tabs": []
+                    "tabs": [],
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "panel",
@@ -576,7 +585,8 @@
                         "ignoreDefaults": false,
                         "vertical": false,
                         "wrap": false,
-                        "align": "center"
+                        "align": "center",
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -614,7 +624,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -652,7 +663,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -690,7 +702,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -728,7 +741,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -766,7 +780,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -804,10 +819,12 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       }
                     ],
-                    "tabs": []
+                    "tabs": [],
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "text",
@@ -839,7 +856,8 @@
                     "ignoreDefaults": false,
                     "vertical": false,
                     "wrap": false,
-                    "align": "center"
+                    "align": "center",
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "text",
@@ -871,7 +889,8 @@
                     "ignoreDefaults": false,
                     "vertical": false,
                     "wrap": false,
-                    "align": "center"
+                    "align": "center",
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "clone",
@@ -882,7 +901,6 @@
                     "width": "auto",
                     "height": 250,
                     "expand": true,
-                    "colorBg": "auto",
                     "css": "",
                     "widgetId": "fader_0",
                     "interaction": true,
@@ -893,7 +911,8 @@
                     "variables": "@{parent.variables}"
                   }
                 ],
-                "tabs": []
+                "tabs": [],
+                "lineWidth": "auto"
               },
               {
                 "type": "panel",
@@ -1048,7 +1067,8 @@
                             "ignoreDefaults": false,
                             "vertical": false,
                             "wrap": false,
-                            "align": "center"
+                            "align": "center",
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1086,7 +1106,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1124,10 +1145,12 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           }
                         ],
-                        "tabs": []
+                        "tabs": [],
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "panel",
@@ -1200,7 +1223,8 @@
                             "ignoreDefaults": false,
                             "vertical": false,
                             "wrap": false,
-                            "align": "center"
+                            "align": "center",
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1238,7 +1262,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1276,7 +1301,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1314,7 +1340,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1352,7 +1379,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1390,7 +1418,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1428,7 +1457,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1466,7 +1496,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -1504,13 +1535,16 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           }
                         ],
-                        "tabs": []
+                        "tabs": [],
+                        "lineWidth": "auto"
                       }
                     ],
-                    "tabs": []
+                    "tabs": [],
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "panel",
@@ -1583,7 +1617,8 @@
                         "ignoreDefaults": false,
                         "vertical": false,
                         "wrap": false,
-                        "align": "center"
+                        "align": "center",
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -1621,7 +1656,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -1659,7 +1695,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -1697,7 +1734,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -1735,7 +1773,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -1773,7 +1812,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -1811,7 +1851,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -1849,7 +1890,8 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "button",
@@ -1887,10 +1929,12 @@
                         "decimals": 2,
                         "target": "@{midi_target}",
                         "ignoreDefaults": false,
-                        "bypass": false
+                        "bypass": false,
+                        "lineWidth": "auto"
                       }
                     ],
-                    "tabs": []
+                    "tabs": [],
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "panel",
@@ -2004,7 +2048,8 @@
                             "ignoreDefaults": false,
                             "vertical": false,
                             "wrap": false,
-                            "align": "center"
+                            "align": "center",
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2042,7 +2087,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2080,7 +2126,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2118,7 +2165,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2156,10 +2204,12 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           }
                         ],
-                        "tabs": []
+                        "tabs": [],
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "panel",
@@ -2232,7 +2282,8 @@
                             "ignoreDefaults": false,
                             "vertical": false,
                             "wrap": false,
-                            "align": "center"
+                            "align": "center",
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2270,7 +2321,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2308,7 +2360,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2346,7 +2399,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2384,7 +2438,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2422,7 +2477,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2460,10 +2516,12 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           }
                         ],
-                        "tabs": []
+                        "tabs": [],
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "panel",
@@ -2536,7 +2594,8 @@
                             "ignoreDefaults": false,
                             "vertical": false,
                             "wrap": false,
-                            "align": "center"
+                            "align": "center",
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2574,7 +2633,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2612,7 +2672,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2650,7 +2711,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2688,13 +2750,16 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           }
                         ],
-                        "tabs": []
+                        "tabs": [],
+                        "lineWidth": "auto"
                       }
                     ],
-                    "tabs": []
+                    "tabs": [],
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "text",
@@ -2726,7 +2791,8 @@
                     "ignoreDefaults": false,
                     "vertical": false,
                     "wrap": false,
-                    "align": "center"
+                    "align": "center",
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "panel",
@@ -2846,7 +2912,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2884,7 +2951,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2922,7 +2990,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2960,7 +3029,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -2998,7 +3068,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -3036,7 +3107,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -3074,10 +3146,12 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           }
                         ],
-                        "tabs": []
+                        "tabs": [],
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "panel",
@@ -3156,7 +3230,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -3194,7 +3269,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -3232,7 +3308,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -3270,7 +3347,8 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "button",
@@ -3308,10 +3386,12 @@
                             "decimals": 2,
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
-                            "bypass": false
+                            "bypass": false,
+                            "lineWidth": "auto"
                           }
                         ],
-                        "tabs": []
+                        "tabs": [],
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "panel",
@@ -3431,7 +3511,8 @@
                                 "decimals": 2,
                                 "target": "@{midi_target}",
                                 "ignoreDefaults": false,
-                                "bypass": false
+                                "bypass": false,
+                                "lineWidth": "auto"
                               },
                               {
                                 "type": "button",
@@ -3469,7 +3550,8 @@
                                 "decimals": 2,
                                 "target": "@{midi_target}",
                                 "ignoreDefaults": false,
-                                "bypass": false
+                                "bypass": false,
+                                "lineWidth": "auto"
                               },
                               {
                                 "type": "button",
@@ -3507,7 +3589,8 @@
                                 "decimals": 2,
                                 "target": "@{midi_target}",
                                 "ignoreDefaults": false,
-                                "bypass": false
+                                "bypass": false,
+                                "lineWidth": "auto"
                               },
                               {
                                 "type": "button",
@@ -3545,7 +3628,8 @@
                                 "decimals": 2,
                                 "target": "@{midi_target}",
                                 "ignoreDefaults": false,
-                                "bypass": false
+                                "bypass": false,
+                                "lineWidth": "auto"
                               },
                               {
                                 "type": "button",
@@ -3583,10 +3667,12 @@
                                 "decimals": 2,
                                 "target": "@{midi_target}",
                                 "ignoreDefaults": false,
-                                "bypass": false
+                                "bypass": false,
+                                "lineWidth": "auto"
                               }
                             ],
-                            "tabs": []
+                            "tabs": [],
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "encoder",
@@ -3625,7 +3711,8 @@
                             "target": "@{midi_target}",
                             "ignoreDefaults": false,
                             "bypass": false,
-                            "touchAddress": ""
+                            "touchAddress": "",
+                            "lineWidth": "auto"
                           },
                           {
                             "type": "panel",
@@ -3704,22 +3791,28 @@
                                 "decimals": 2,
                                 "target": "@{midi_target}",
                                 "ignoreDefaults": false,
-                                "bypass": false
+                                "bypass": false,
+                                "lineWidth": "auto"
                               }
                             ],
-                            "tabs": []
+                            "tabs": [],
+                            "lineWidth": "auto"
                           }
                         ],
-                        "tabs": []
+                        "tabs": [],
+                        "lineWidth": "auto"
                       }
                     ],
-                    "tabs": []
+                    "tabs": [],
+                    "lineWidth": "auto"
                   }
                 ],
-                "tabs": []
+                "tabs": [],
+                "lineWidth": "auto"
               }
             ],
-            "tabs": []
+            "tabs": [],
+            "lineWidth": "auto"
           },
           {
             "type": "panel",
@@ -3803,7 +3896,8 @@
                 "props": {
                   "padding": -1,
                   "alphaFillOff": 0.25
-                }
+                },
+                "lineWidth": "auto"
               },
               {
                 "type": "panel",
@@ -3876,7 +3970,8 @@
                     "preArgs": "",
                     "typeTags": "",
                     "target": "",
-                    "ignoreDefaults": false
+                    "ignoreDefaults": false,
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "text",
@@ -3908,10 +4003,12 @@
                     "preArgs": "",
                     "typeTags": "",
                     "target": "",
-                    "ignoreDefaults": false
+                    "ignoreDefaults": false,
+                    "lineWidth": "auto"
                   }
                 ],
-                "tabs": []
+                "tabs": [],
+                "lineWidth": "auto"
               },
               {
                 "type": "panel",
@@ -3998,7 +4095,8 @@
                       "address": "/timecode",
                       "target": "@{midi_target}",
                       "alphaFillOff": "#{[3,4,7,8,9].includes($) ? 0.15 : 0.2}"
-                    }
+                    },
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "panel",
@@ -4071,7 +4169,8 @@
                         "preArgs": "",
                         "typeTags": "",
                         "target": "",
-                        "ignoreDefaults": false
+                        "ignoreDefaults": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "text",
@@ -4103,7 +4202,8 @@
                         "preArgs": "",
                         "typeTags": "",
                         "target": "",
-                        "ignoreDefaults": false
+                        "ignoreDefaults": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "text",
@@ -4135,7 +4235,8 @@
                         "preArgs": "",
                         "typeTags": "",
                         "target": "",
-                        "ignoreDefaults": false
+                        "ignoreDefaults": false,
+                        "lineWidth": "auto"
                       },
                       {
                         "type": "text",
@@ -4167,19 +4268,24 @@
                         "preArgs": "",
                         "typeTags": "",
                         "target": "",
-                        "ignoreDefaults": false
+                        "ignoreDefaults": false,
+                        "lineWidth": "auto"
                       }
                     ],
-                    "tabs": []
+                    "tabs": [],
+                    "lineWidth": "auto"
                   }
                 ],
-                "tabs": []
+                "tabs": [],
+                "lineWidth": "auto"
               }
             ],
-            "tabs": []
+            "tabs": [],
+            "lineWidth": "auto"
           }
         ],
-        "tabs": []
+        "tabs": [],
+        "lineWidth": "auto"
       },
       {
         "type": "modal",
@@ -4299,7 +4405,8 @@
                 "doubleTap": false,
                 "colorTextOn": "auto",
                 "decimals": 2,
-                "bypass": false
+                "bypass": false,
+                "lineWidth": "auto"
               },
               {
                 "type": "panel",
@@ -4379,7 +4486,8 @@
                     "target": "@{midi_target}",
                     "ignoreDefaults": false,
                     "bypass": false,
-                    "touchAddress": ""
+                    "touchAddress": "",
+                    "lineWidth": "auto"
                   },
                   {
                     "type": "html",
@@ -4410,10 +4518,12 @@
                     "preArgs": "@{parent.variables.n}",
                     "typeTags": "",
                     "target": "@{midi_target}",
-                    "ignoreDefaults": false
+                    "ignoreDefaults": false,
+                    "lineWidth": "auto"
                   }
                 ],
-                "tabs": []
+                "tabs": [],
+                "lineWidth": "auto"
               },
               {
                 "type": "button",
@@ -4451,7 +4561,8 @@
                 "decimals": 2,
                 "target": "@{midi_target}",
                 "ignoreDefaults": false,
-                "bypass": false
+                "bypass": false,
+                "lineWidth": "auto"
               },
               {
                 "type": "html",
@@ -4482,7 +4593,8 @@
                 "preArgs": "@{parent.variables.n}",
                 "typeTags": "",
                 "target": "@{midi_target}",
-                "ignoreDefaults": false
+                "ignoreDefaults": false,
+                "lineWidth": "auto"
               },
               {
                 "type": "button",
@@ -4520,7 +4632,8 @@
                 "decimals": 2,
                 "target": "@{midi_target}",
                 "ignoreDefaults": false,
-                "bypass": false
+                "bypass": false,
+                "lineWidth": "auto"
               },
               {
                 "type": "button",
@@ -4558,7 +4671,8 @@
                 "decimals": 2,
                 "target": "@{midi_target}",
                 "ignoreDefaults": false,
-                "bypass": false
+                "bypass": false,
+                "lineWidth": "auto"
               },
               {
                 "type": "button",
@@ -4596,7 +4710,8 @@
                 "decimals": 2,
                 "target": "@{midi_target}",
                 "ignoreDefaults": false,
-                "bypass": false
+                "bypass": false,
+                "lineWidth": "auto"
               },
               {
                 "type": "text",
@@ -4628,7 +4743,8 @@
                 "ignoreDefaults": false,
                 "vertical": false,
                 "wrap": false,
-                "align": "center"
+                "align": "center",
+                "lineWidth": "auto"
               },
               {
                 "type": "panel",
@@ -4718,7 +4834,9 @@
                     "target": "@{midi_target}",
                     "ignoreDefaults": false,
                     "bypass": false,
-                    "touchAddress": "/fader_touch"
+                    "touchAddress": "/fader_touch",
+                    "lineWidth": "auto",
+                    "knobSize": "auto"
                   },
                   {
                     "type": "fader",
@@ -4759,7 +4877,7 @@
                     "sensitivity": 1,
                     "steps": "",
                     "origin": "auto",
-                    "value": "JS{{\nreturn OSC{/vu_meter} * OSC{/vu_meter_mode}\n}}",
+                    "value": "JS{{\nreturn OSC{/vu_meter} * OSC{/vu_meter_mode, 1}\n}}",
                     "default": "",
                     "linkId": "",
                     "script": "",
@@ -4770,13 +4888,17 @@
                     "target": "@{midi_target}",
                     "ignoreDefaults": false,
                     "bypass": false,
-                    "touchAddress": ""
+                    "touchAddress": "",
+                    "lineWidth": "auto",
+                    "knobSize": "auto"
                   }
                 ],
-                "tabs": []
+                "tabs": [],
+                "lineWidth": "auto"
               }
             ],
-            "tabs": []
+            "tabs": [],
+            "lineWidth": "auto"
           },
           {
             "type": "variable",
@@ -4789,7 +4911,8 @@
             "preArgs": "",
             "typeTags": "",
             "target": "",
-            "ignoreDefaults": false
+            "ignoreDefaults": false,
+            "lineWidth": "auto"
           },
           {
             "type": "script",
@@ -4808,7 +4931,8 @@
             "decimals": 2,
             "target": "@{midi_target}",
             "ignoreDefaults": false,
-            "bypass": false
+            "bypass": false,
+            "lineWidth": "auto"
           },
           {
             "type": "variable",
@@ -4821,7 +4945,8 @@
             "preArgs": "",
             "typeTags": "",
             "target": "",
-            "ignoreDefaults": false
+            "ignoreDefaults": false,
+            "lineWidth": "auto"
           }
         ],
         "label": "^cog",
@@ -4830,11 +4955,13 @@
         "popupWidth": "80%",
         "popupHeight": "80%",
         "popupLeft": "auto",
-        "popupTop": "auto"
+        "popupTop": "auto",
+        "lineWidth": "auto"
       }
     ],
-    "tabs": []
+    "tabs": [],
+    "lineWidth": "auto"
   },
-  "version": "1.0.4",
+  "version": "1.2.0",
   "type": "Open Stage Control session"
 }
