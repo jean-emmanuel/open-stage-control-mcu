@@ -88,10 +88,10 @@ NOTES_TO_ACTIONS = {
     95: 'record',
     96: 'up',
     97: 'down',
-    98: 'scrub',
-    99: 'zoom',
-    100: 'left',
-    101: 'right',
+    98: 'left',
+    99: 'right',
+    100: 'zoom',
+    101: 'scrub',
 
     // LEDS
     113: 'led_smpte',
@@ -208,7 +208,7 @@ function mcuToOsc(host, port, address, args) {
 
             }
 
-        // } else if (channel === 16 && control === 60) {
+        // } else if (channel === 1 && control === 60) {
         //     // nothing to update
         //     action = 'scrub_wheel'
         //     outArgs.push(value === 1 ? -1 : 1)
@@ -320,7 +320,7 @@ function oscToMcu(host, port, address, args) {
         outArgs.push(1, 16 + inArgs[0] - 1, inArgs[1] === 1 ? 1 : 65)
     } else if (action === 'scrub_wheel') {
         outAddress = '/control'
-        outArgs.push(16, 60, inArgs[0] === 1 ? 1 : 65)
+        outArgs.push(1, 60, inArgs[0] === 1 ? 1 : 65)
     }
 
     // PITCHBEND
