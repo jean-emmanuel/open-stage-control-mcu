@@ -4681,7 +4681,7 @@
                 "visible": true,
                 "interaction": true,
                 "width": "auto",
-                "height": 40,
+                "height": 50,
                 "expand": "false",
                 "colorBg": "auto",
                 "colorText": "auto",
