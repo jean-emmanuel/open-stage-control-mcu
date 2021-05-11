@@ -1222,7 +1222,7 @@
                   "widgetId": "mixer_strip",
                   "props": {
                     "variables": {
-                      "n": "#{$ + 8}",
+                      "n": "#{$ + 9}",
                       "target": "@{midi_target}"
                     },
                     "visible": true
