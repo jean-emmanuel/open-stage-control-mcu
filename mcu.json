@@ -1,5 +1,5 @@
 {
-  "version": "1.9.7",
+  "version": "1.14.5",
   "type": "session",
   "createdWith": "Open Stage Control",
   "content": {
@@ -24,7 +24,6 @@
     "value": "",
     "default": "",
     "linkId": "",
-    "script": "",
     "address": "auto",
     "preArgs": "",
     "typeTags": "",
@@ -55,7 +54,6 @@
         "value": "",
         "default": "",
         "linkId": "",
-        "script": "",
         "address": "auto",
         "preArgs": "",
         "target": "",
@@ -64,7 +62,9 @@
         "align": "center",
         "html": "",
         "comments": "",
-        "decimals": 2
+        "decimals": 2,
+        "onValue": "",
+        "onCreate": ""
       },
       {
         "type": "modal",
@@ -89,7 +89,6 @@
         "value": "",
         "default": "",
         "linkId": "",
-        "script": "",
         "address": "auto",
         "preArgs": "",
         "typeTags": "",
@@ -112,7 +111,6 @@
             "value": "",
             "default": "",
             "linkId": "",
-            "script": "",
             "address": "auto",
             "preArgs": "",
             "typeTags": "",
@@ -120,7 +118,9 @@
             "ignoreDefaults": false,
             "decimals": 2,
             "bypass": false,
-            "comments": ""
+            "comments": "",
+            "onValue": "",
+            "onCreate": ""
           },
           {
             "type": "script",
@@ -128,7 +128,6 @@
             "value": "",
             "default": "",
             "linkId": "",
-            "script": "var pos = value[0],\n    text = value.slice(1)\nfor (var i = 0; i < text.length; i++) {\n  set('lcd_display/' + (pos + i), text[i])\n}",
             "address": "/lcd",
             "preArgs": "",
             "typeTags": "",
@@ -136,19 +135,20 @@
             "target": "@{midi_target}",
             "ignoreDefaults": false,
             "bypass": false,
-            "event": "value",
             "keyBinding": "",
             "keyRepeat": true,
             "keyType": "keydown",
-            "comments": ""
+            "comments": "",
+            "onValue": "var pos = value[0],\n    text = value.slice(1)\nfor (var i = 0; i < text.length; i++) {\n  set('lcd_display/' + (pos + i), text[i])\n}",
+            "onCreate": "",
+            "onKeyboard": ""
           },
           {
             "type": "variable",
             "id": "widget_css",
-            "value": ".button-container.no-pulse inner:after {\n  animation: none\n}\n\n.text-container {\n  --alpha-fill-off: 0.05;\n}\n.button-container {\n  --alpha-stroke: 0;\n  --alpha-fill-off: 0.15;\n\n  --alpha-fill-on: 0.5;\n  --color-text-on: var(--color-text);\n}\n\n\n\n.vpot {\n  --led-height: 3rem;\n  --led-width: 10%;\n}\n\n.vpot canvas {\n  opacity: 0;\n}\n.vpot .html {\n  position:relative;\n  height: 100%;\n}\n.vpot .knob {\n  position: absolute;\n  left:50%;\n  top: 50%;\n  width: 24rem;\n  height: 24rem;\n  margin-left: -12rem;\n  margin-top: -12rem;\n  border-radius: 50%;\n  background: var(--color-widget);\n  opacity: .75\n}\n.vpot .led {\n  position: absolute;\n  width: 100%;\n  height: var(--led-height);\n  top: 50%;\n  margin-top: calc(-0.5 * var(--led-height));\n}\n.vpot .led:after, .led:before {\n  content: \"\";\n  position: absolute;\n  width: var(--led-width);\n  height: var(--led-height);\n  left:5rem;top:0;\n  background: red;\n  border-radius: 50%;\n  opacity: var(--led-opacity);\n}\n.vpot .led:before {\n  background: var(--color-widget);\n  opacity: 0.25;\n}\n.vpot .led-0 {\n  left: 50%;\n  top: 75%;\n  width: 0;\n  margin: 0;\n}\n.vpot .led-0:after, .vpot .led-0:before {\n  width: 7rem;\n  height: 7rem;\n  left: -3rem;\n}\n\n\nJS{{\nvar h = ''\nfor (var i = 1; i < 12; i++) {\n  h += `\n  .vpot .led-${i} {\n    transform: rotate(${-45 + 270 * i / 12}deg);\n  }\n`\n}\nreturn h\n}}\n",
+            "value": ".button-container.no-pulse inner:after {\n  animation: none\n}\n\n.text-container {\n  --alpha-fill-off: 0.05;\n}\n.button-container {\n  --alpha-stroke: 0;\n  --alpha-fill-off: 0.15;\n\n  --alpha-fill-on: 0.5;\n  --color-text-on: var(--color-text);\n}\n\n\n\n.vpot {\n  --led-height: 3rem;\n  --led-width: 10%;\n}\n\n.vpot canvas {\n  opacity: 0;\n}\n.vpot .html {\n  position:absolute;\n  height: 100%;\n  width: 100%;\n  top:0:\n  left:0;\n}\n.vpot .knob {\n  position: absolute;\n  left:50%;\n  top: 50%;\n  width: 24rem;\n  height: 24rem;\n  margin-left: -12rem;\n  margin-top: -12rem;\n  border-radius: 50%;\n  background: var(--color-widget);\n  opacity: .75\n}\n.vpot .led {\n  position: absolute;\n  width: 100%;\n  height: var(--led-height);\n  top: 50%;\n  margin-top: calc(-0.5 * var(--led-height));\n}\n.vpot .led:after, .led:before {\n  content: \"\";\n  position: absolute;\n  width: var(--led-width);\n  height: var(--led-height);\n  left:5rem;top:0;\n  background: red;\n  border-radius: 50%;\n  opacity: var(--led-opacity);\n}\n.vpot .led:before {\n  background: var(--color-widget);\n  opacity: 0.25;\n}\n.vpot .led-0 {\n  left: 50%;\n  top: 75%;\n  width: 0;\n  margin: 0;\n}\n.vpot .led-0:after, .vpot .led-0:before {\n  width: 7rem;\n  height: 7rem;\n  left: -3rem;\n}\n\n\nJS{{\nvar h = ''\nfor (var i = 1; i < 12; i++) {\n  h += `\n  .vpot .led-${i} {\n    transform: rotate(${-45 + 270 * i / 12}deg);\n  }\n`\n}\nreturn h\n}}\n",
             "default": "",
             "linkId": "",
-            "script": "",
             "address": "auto",
             "preArgs": "",
             "typeTags": "",
@@ -156,7 +156,9 @@
             "ignoreDefaults": false,
             "decimals": 2,
             "bypass": false,
-            "comments": ""
+            "comments": "",
+            "onValue": "",
+            "onCreate": ""
           },
           {
             "type": "variable",
@@ -164,7 +166,6 @@
             "value": 2,
             "default": "",
             "linkId": "",
-            "script": "",
             "address": "auto",
             "preArgs": "",
             "typeTags": "",
@@ -172,7 +173,9 @@
             "ignoreDefaults": false,
             "decimals": 2,
             "bypass": false,
-            "comments": ""
+            "comments": "",
+            "onValue": "",
+            "onCreate": ""
           },
           {
             "type": "panel",
@@ -208,7 +211,6 @@
             "value": "",
             "default": "",
             "linkId": "",
-            "script": "",
             "address": "auto",
             "preArgs": "",
             "typeTags": "",
@@ -251,7 +253,6 @@
                 "value": "",
                 "default": "",
                 "linkId": "",
-                "script": "",
                 "address": "auto",
                 "preArgs": "",
                 "typeTags": "",
@@ -282,7 +283,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "/vpot",
                     "preArgs": "@{parent.variables.target}",
                     "typeTags": "",
@@ -300,7 +300,9 @@
                     "vertical": false,
                     "wrap": false,
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "panel",
@@ -329,7 +331,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -371,7 +372,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/vpot_rotate",
                         "preArgs": "@{parent.variables.n}",
                         "typeTags": "",
@@ -388,12 +388,17 @@
                         "logScale": false,
                         "sensitivity": 1,
                         "comments": "",
-                        "ticks": ""
+                        "ticks": "",
+                        "onValue": "",
+                        "onCreate": "",
+                        "onTouch": ""
                       }
                     ],
                     "tabs": [],
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "button",
@@ -423,7 +428,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "/rec",
                     "preArgs": "@{parent.variables.n}",
                     "typeTags": "",
@@ -435,7 +439,9 @@
                     "vertical": false,
                     "wrap": false,
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "html",
@@ -460,12 +466,13 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "@{parent.variables.n}",
                     "target": "@{parent.variables.target}",
                     "lineWidth": "auto",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "button",
@@ -495,7 +502,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "/solo",
                     "preArgs": "@{parent.variables.n}",
                     "typeTags": "",
@@ -507,7 +513,9 @@
                     "vertical": false,
                     "wrap": false,
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "button",
@@ -537,7 +545,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "/mute",
                     "preArgs": "@{parent.variables.n}",
                     "typeTags": "",
@@ -549,7 +556,9 @@
                     "vertical": false,
                     "wrap": false,
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "button",
@@ -579,7 +588,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "/sel",
                     "preArgs": "@{parent.variables.n}",
                     "typeTags": "",
@@ -591,7 +599,9 @@
                     "vertical": false,
                     "wrap": false,
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "text",
@@ -614,7 +624,6 @@
                     "value": "@{parent.variables.n}",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "target": "",
@@ -624,7 +633,9 @@
                     "lineWidth": "auto",
                     "html": "",
                     "comments": "",
-                    "decimals": 2
+                    "decimals": 2,
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "panel",
@@ -658,7 +669,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -705,7 +715,6 @@
                         "value": "",
                         "default": 0.782,
                         "linkId": "",
-                        "script": "\nif (touch !== undefined) {\n // generated automatically\n // from touchAddress\n var address = \"/fader_touch\"\n send(address, touch)\n}",
                         "address": "/fader",
                         "preArgs": "@{parent.variables.n}",
                         "typeTags": "",
@@ -716,7 +725,10 @@
                         "lineWidth": "auto",
                         "knobSize": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "\nif (touch !== undefined) {\n // generated automatically\n // from touchAddress\n var address = \"/fader_touch\"\n send(address, touch)\n}",
+                        "onCreate": "",
+                        "onTouch": ""
                       },
                       {
                         "type": "fader",
@@ -759,7 +771,6 @@
                         "value": "JS{{\nreturn OSC{/vu_meter} * OSC{/vu_meter_mode, 1}\n}}",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "@{parent.variables.n}",
                         "typeTags": "",
@@ -770,23 +781,32 @@
                         "lineWidth": "auto",
                         "knobSize": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": "",
+                        "onTouch": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": "auto",
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   }
                 ],
                 "tabs": [],
                 "lineWidth": "auto",
                 "html": "",
-                "comments": ""
+                "comments": "",
+                "onValue": "",
+                "onCreate": ""
               }
             ],
             "tabs": [],
-            "comments": ""
+            "comments": "",
+            "onValue": "",
+            "onCreate": ""
           },
           {
             "type": "panel",
@@ -822,7 +842,6 @@
             "value": "",
             "default": "",
             "linkId": "",
-            "script": "",
             "address": "auto",
             "preArgs": "",
             "typeTags": "",
@@ -862,7 +881,6 @@
                 "value": "",
                 "default": "",
                 "linkId": "",
-                "script": "",
                 "address": "auto",
                 "preArgs": "",
                 "typeTags": "",
@@ -871,11 +889,15 @@
                 "ignoreDefaults": false,
                 "bypass": false,
                 "html": "",
-                "comments": ""
+                "comments": "",
+                "onValue": "",
+                "onCreate": ""
               }
             ],
             "tabs": [],
-            "comments": ""
+            "comments": "",
+            "onValue": "",
+            "onCreate": ""
           }
         ],
         "label": "^cog",
@@ -886,12 +908,13 @@
         "popupLeft": "auto",
         "popupTop": "auto",
         "relative": false,
-        "html": "",
         "justify": "start",
         "popupPadding": "auto",
         "tabs": [],
         "comments": "",
-        "ignoreTabs": false
+        "ignoreTabs": false,
+        "onValue": "",
+        "onCreate": ""
       },
       {
         "type": "panel",
@@ -925,7 +948,6 @@
         "value": "",
         "default": "",
         "linkId": "",
-        "script": "",
         "address": "auto",
         "preArgs": "",
         "typeTags": "",
@@ -966,7 +988,6 @@
             "value": "",
             "default": "",
             "linkId": "",
-            "script": "",
             "address": "auto",
             "preArgs": "",
             "typeTags": "",
@@ -1002,7 +1023,6 @@
                 "value": "",
                 "default": "",
                 "linkId": "",
-                "script": "",
                 "address": "auto",
                 "preArgs": "",
                 "typeTags": "",
@@ -1024,7 +1044,9 @@
                 "variables": "@{parent.variables}",
                 "widgets": [],
                 "tabs": [],
-                "comments": ""
+                "comments": "",
+                "onValue": "",
+                "onCreate": ""
               },
               {
                 "type": "matrix",
@@ -1053,7 +1075,6 @@
                 "value": "",
                 "default": "",
                 "linkId": "",
-                "script": "",
                 "address": "auto",
                 "preArgs": "",
                 "typeTags": "",
@@ -1081,13 +1102,17 @@
                 "variables": "@{parent.variables}",
                 "widgets": [],
                 "tabs": [],
-                "comments": ""
+                "comments": "",
+                "onValue": "",
+                "onCreate": ""
               }
             ],
             "tabs": [],
             "lineWidth": 0,
             "html": "",
-            "comments": ""
+            "comments": "",
+            "onValue": "",
+            "onCreate": ""
           },
           {
             "type": "panel",
@@ -1121,7 +1146,6 @@
             "value": "",
             "default": "",
             "linkId": "",
-            "script": "",
             "address": "auto",
             "preArgs": "",
             "typeTags": "",
@@ -1157,7 +1181,6 @@
                 "value": "",
                 "default": "",
                 "linkId": "",
-                "script": "",
                 "address": "auto",
                 "preArgs": "",
                 "typeTags": "",
@@ -1179,7 +1202,9 @@
                 "variables": "@{parent.variables}",
                 "widgets": [],
                 "tabs": [],
-                "comments": ""
+                "comments": "",
+                "onValue": "",
+                "onCreate": ""
               },
               {
                 "type": "matrix",
@@ -1208,7 +1233,6 @@
                 "value": "",
                 "default": "",
                 "linkId": "",
-                "script": "",
                 "address": "auto",
                 "preArgs": "",
                 "typeTags": "",
@@ -1236,13 +1260,17 @@
                 "variables": "@{parent.variables}",
                 "widgets": [],
                 "tabs": [],
-                "comments": ""
+                "comments": "",
+                "onValue": "",
+                "onCreate": ""
               }
             ],
             "tabs": [],
             "lineWidth": 0,
             "html": "",
-            "comments": ""
+            "comments": "",
+            "onValue": "",
+            "onCreate": ""
           },
           {
             "type": "panel",
@@ -1271,7 +1299,6 @@
             "value": "",
             "default": "",
             "linkId": "",
-            "script": "",
             "address": "auto",
             "preArgs": "",
             "typeTags": "",
@@ -1313,7 +1340,6 @@
                 "value": "",
                 "default": "",
                 "linkId": "",
-                "script": "",
                 "address": "auto",
                 "preArgs": "",
                 "typeTags": "",
@@ -1359,7 +1385,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -1389,7 +1414,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "target": "",
@@ -1399,7 +1423,9 @@
                         "align": "center",
                         "html": "",
                         "comments": "",
-                        "decimals": 2
+                        "decimals": 2,
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "text",
@@ -1422,7 +1448,6 @@
                         "value": "Assignment",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "target": "",
@@ -1432,13 +1457,17 @@
                         "align": "center",
                         "html": "",
                         "comments": "",
-                        "decimals": 2
+                        "decimals": 2,
+                        "onValue": "",
+                        "onCreate": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": "auto",
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "panel",
@@ -1467,7 +1496,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -1502,7 +1530,6 @@
                         "value": "VPOT ASSIGN",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "target": "",
@@ -1512,7 +1539,9 @@
                         "lineWidth": "auto",
                         "html": "",
                         "comments": "",
-                        "decimals": 2
+                        "decimals": 2,
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1542,7 +1571,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1554,7 +1582,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1584,7 +1614,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1596,7 +1625,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1626,7 +1657,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1638,7 +1668,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1668,7 +1700,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1680,7 +1711,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1710,7 +1743,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1722,7 +1754,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1752,7 +1786,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1764,13 +1797,17 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": "auto",
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "panel",
@@ -1804,7 +1841,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -1834,7 +1870,6 @@
                         "value": "FADER BANKS",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "target": "",
@@ -1844,7 +1879,9 @@
                         "lineWidth": "auto",
                         "html": "",
                         "comments": "",
-                        "decimals": 2
+                        "decimals": 2,
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1874,7 +1911,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1886,7 +1922,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1916,7 +1954,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1928,7 +1965,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -1958,7 +1997,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -1970,7 +2008,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -2000,7 +2040,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -2012,7 +2051,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -2042,7 +2083,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -2054,7 +2094,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -2084,7 +2126,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -2096,13 +2137,17 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": "auto",
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "text",
@@ -2125,7 +2170,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "target": "",
@@ -2135,7 +2179,9 @@
                     "lineWidth": "auto",
                     "html": "",
                     "comments": "",
-                    "decimals": 2
+                    "decimals": 2,
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "text",
@@ -2158,7 +2204,6 @@
                     "value": "Master",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "target": "",
@@ -2168,7 +2213,9 @@
                     "lineWidth": "auto",
                     "html": "",
                     "comments": "",
-                    "decimals": 2
+                    "decimals": 2,
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "clone",
@@ -2186,7 +2233,6 @@
                       "preArgs": 9
                     },
                     "comments": "",
-                    "script": "",
                     "address": "auto",
                     "variables": "@{parent.variables}"
                   }
@@ -2194,7 +2240,9 @@
                 "tabs": [],
                 "lineWidth": "auto",
                 "html": "",
-                "comments": ""
+                "comments": "",
+                "onValue": "",
+                "onCreate": ""
               },
               {
                 "type": "panel",
@@ -2228,7 +2276,6 @@
                 "value": "",
                 "default": "",
                 "linkId": "",
-                "script": "",
                 "address": "auto",
                 "preArgs": "",
                 "typeTags": "",
@@ -2269,7 +2316,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -2305,7 +2351,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -2330,7 +2375,9 @@
                         "variables": "@{parent.variables}",
                         "widgets": [],
                         "tabs": [],
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "panel",
@@ -2364,7 +2411,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -2397,14 +2443,15 @@
                             "value": "#{OSC{/led_smpte,0} ? \"Hours\" : \"Bars\"}",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "text",
@@ -2430,14 +2477,15 @@
                             "value": "#{OSC{/led_smpte,0} ? \"Minutes\" : \"Beats\"}",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "text",
@@ -2463,14 +2511,15 @@
                             "value": "#{OSC{/led_smpte,0} ? \"Seconds\" : \"Subdiv.\"}",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "text",
@@ -2496,26 +2545,31 @@
                             "value": "#{OSC{/led_smpte,0} ? \"Frames\" : \"Ticks\"}",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": "auto",
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "panel",
@@ -2549,7 +2603,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -2590,7 +2643,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -2620,7 +2672,6 @@
                             "value": "DISPLAY",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
@@ -2630,7 +2681,9 @@
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -2660,7 +2713,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -2672,7 +2724,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -2702,7 +2756,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -2714,13 +2767,17 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "panel",
@@ -2754,7 +2811,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -2784,7 +2840,6 @@
                             "value": "FUNCTION",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
@@ -2794,7 +2849,9 @@
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -2824,7 +2881,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -2836,7 +2892,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -2866,7 +2924,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -2878,7 +2935,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -2908,7 +2967,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -2920,7 +2978,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -2950,7 +3010,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -2962,7 +3021,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -2992,7 +3053,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3004,7 +3064,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3034,7 +3096,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3046,7 +3107,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3076,7 +3139,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3088,7 +3150,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3118,7 +3182,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3130,19 +3193,25 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": "auto",
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "panel",
@@ -3176,7 +3245,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -3206,7 +3274,6 @@
                         "value": "VIEW",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "target": "",
@@ -3216,7 +3283,9 @@
                         "lineWidth": "auto",
                         "html": "",
                         "comments": "",
-                        "decimals": 2
+                        "decimals": 2,
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -3246,7 +3315,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -3258,7 +3326,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -3288,7 +3358,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -3300,7 +3369,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -3330,7 +3401,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -3342,7 +3412,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -3372,7 +3444,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -3384,7 +3455,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -3414,7 +3487,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -3426,7 +3498,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -3456,7 +3530,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -3468,7 +3541,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -3498,7 +3573,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -3510,7 +3584,9 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "button",
@@ -3540,7 +3616,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "/@{this.id}",
                         "preArgs": "",
                         "typeTags": "",
@@ -3552,13 +3627,17 @@
                         "vertical": false,
                         "wrap": false,
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": "auto",
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "panel",
@@ -3592,7 +3671,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -3633,7 +3711,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -3663,7 +3740,6 @@
                             "value": "MODIFIERS",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
@@ -3673,7 +3749,9 @@
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3703,7 +3781,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3715,7 +3792,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3745,7 +3824,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3757,7 +3835,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3787,7 +3867,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3799,7 +3878,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3829,7 +3910,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3841,13 +3921,17 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "panel",
@@ -3881,7 +3965,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -3911,7 +3994,6 @@
                             "value": "AUTOMATION",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
@@ -3921,7 +4003,9 @@
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3951,7 +4035,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -3963,7 +4046,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -3993,7 +4078,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4005,7 +4089,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4035,7 +4121,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4047,7 +4132,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4077,7 +4164,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4089,7 +4175,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4119,7 +4207,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4131,7 +4218,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4161,7 +4250,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4173,13 +4261,17 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "panel",
@@ -4213,7 +4305,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -4243,7 +4334,6 @@
                             "value": "UTILITIES",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "target": "",
@@ -4253,7 +4343,9 @@
                             "lineWidth": "auto",
                             "html": "",
                             "comments": "",
-                            "decimals": 2
+                            "decimals": 2,
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4283,7 +4375,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4295,7 +4386,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4325,7 +4418,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4337,7 +4429,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4367,7 +4461,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4379,7 +4472,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4409,7 +4504,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4421,19 +4515,25 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": "auto",
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "text",
@@ -4456,7 +4556,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "target": "",
@@ -4466,7 +4565,9 @@
                     "lineWidth": "auto",
                     "html": "",
                     "comments": "",
-                    "decimals": 2
+                    "decimals": 2,
+                    "onValue": "",
+                    "onCreate": ""
                   },
                   {
                     "type": "panel",
@@ -4500,7 +4601,6 @@
                     "value": "",
                     "default": "",
                     "linkId": "",
-                    "script": "",
                     "address": "auto",
                     "preArgs": "",
                     "typeTags": "",
@@ -4541,7 +4641,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -4578,7 +4677,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4590,7 +4688,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4620,7 +4720,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4632,7 +4731,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4662,7 +4763,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4674,7 +4774,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4704,7 +4806,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4716,7 +4817,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4746,7 +4849,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4758,7 +4860,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4788,7 +4892,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4800,7 +4903,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4830,7 +4935,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4842,13 +4946,17 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "panel",
@@ -4882,7 +4990,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -4919,7 +5026,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4931,7 +5037,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -4961,7 +5069,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -4973,7 +5080,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -5003,7 +5112,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -5015,7 +5123,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -5045,7 +5155,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -5057,7 +5166,9 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "button",
@@ -5087,7 +5198,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -5099,13 +5209,17 @@
                             "vertical": false,
                             "wrap": false,
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       },
                       {
                         "type": "panel",
@@ -5139,7 +5253,6 @@
                         "value": "",
                         "default": "",
                         "linkId": "",
-                        "script": "",
                         "address": "auto",
                         "preArgs": "",
                         "typeTags": "",
@@ -5180,7 +5293,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "typeTags": "",
@@ -5217,7 +5329,6 @@
                                 "value": "",
                                 "default": "",
                                 "linkId": "",
-                                "script": "",
                                 "address": "/@{this.id}",
                                 "preArgs": "",
                                 "typeTags": "",
@@ -5229,7 +5340,9 @@
                                 "vertical": false,
                                 "wrap": false,
                                 "html": "",
-                                "comments": ""
+                                "comments": "",
+                                "onValue": "",
+                                "onCreate": ""
                               },
                               {
                                 "type": "button",
@@ -5259,7 +5372,6 @@
                                 "value": "",
                                 "default": "",
                                 "linkId": "",
-                                "script": "",
                                 "address": "/@{this.id}",
                                 "preArgs": "",
                                 "typeTags": "",
@@ -5271,7 +5383,9 @@
                                 "vertical": false,
                                 "wrap": false,
                                 "html": "",
-                                "comments": ""
+                                "comments": "",
+                                "onValue": "",
+                                "onCreate": ""
                               },
                               {
                                 "type": "button",
@@ -5301,7 +5415,6 @@
                                 "value": "",
                                 "default": "",
                                 "linkId": "",
-                                "script": "",
                                 "address": "/@{this.id}",
                                 "preArgs": "",
                                 "typeTags": "",
@@ -5313,7 +5426,9 @@
                                 "vertical": false,
                                 "wrap": false,
                                 "html": "",
-                                "comments": ""
+                                "comments": "",
+                                "onValue": "",
+                                "onCreate": ""
                               },
                               {
                                 "type": "button",
@@ -5343,7 +5458,6 @@
                                 "value": "",
                                 "default": "",
                                 "linkId": "",
-                                "script": "",
                                 "address": "/@{this.id}",
                                 "preArgs": "",
                                 "typeTags": "",
@@ -5355,7 +5469,9 @@
                                 "vertical": false,
                                 "wrap": false,
                                 "html": "",
-                                "comments": ""
+                                "comments": "",
+                                "onValue": "",
+                                "onCreate": ""
                               },
                               {
                                 "type": "button",
@@ -5385,7 +5501,6 @@
                                 "value": "",
                                 "default": "",
                                 "linkId": "",
-                                "script": "",
                                 "address": "/@{this.id}",
                                 "preArgs": "",
                                 "typeTags": "",
@@ -5397,13 +5512,17 @@
                                 "vertical": false,
                                 "wrap": false,
                                 "html": "",
-                                "comments": ""
+                                "comments": "",
+                                "onValue": "",
+                                "onCreate": ""
                               }
                             ],
                             "tabs": [],
                             "lineWidth": "auto",
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           },
                           {
                             "type": "encoder",
@@ -5432,7 +5551,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "/@{this.id}",
                             "preArgs": "",
                             "typeTags": "",
@@ -5449,7 +5567,10 @@
                             "logScale": false,
                             "sensitivity": 1,
                             "comments": "",
-                            "ticks": ""
+                            "ticks": "",
+                            "onValue": "",
+                            "onCreate": "",
+                            "onTouch": ""
                           },
                           {
                             "type": "panel",
@@ -5473,7 +5594,6 @@
                             "value": "",
                             "default": "",
                             "linkId": "",
-                            "script": "",
                             "address": "auto",
                             "preArgs": "",
                             "typeTags": "",
@@ -5520,7 +5640,6 @@
                                 "value": "",
                                 "default": "",
                                 "linkId": "",
-                                "script": "",
                                 "address": "/@{this.id}",
                                 "preArgs": "",
                                 "typeTags": "",
@@ -5532,42 +5651,56 @@
                                 "vertical": false,
                                 "wrap": false,
                                 "html": "",
-                                "comments": ""
+                                "comments": "",
+                                "onValue": "",
+                                "onCreate": ""
                               }
                             ],
                             "tabs": [],
                             "lineWidth": "auto",
                             "html": "",
-                            "comments": ""
+                            "comments": "",
+                            "onValue": "",
+                            "onCreate": ""
                           }
                         ],
                         "tabs": [],
                         "lineWidth": "auto",
                         "html": "",
-                        "comments": ""
+                        "comments": "",
+                        "onValue": "",
+                        "onCreate": ""
                       }
                     ],
                     "tabs": [],
                     "lineWidth": 0,
                     "html": "",
-                    "comments": ""
+                    "comments": "",
+                    "onValue": "",
+                    "onCreate": ""
                   }
                 ],
                 "tabs": [],
                 "lineWidth": 0,
                 "html": "",
-                "comments": ""
+                "comments": "",
+                "onValue": "",
+                "onCreate": ""
               }
             ],
             "tabs": [],
             "html": "",
-            "comments": ""
+            "comments": "",
+            "onValue": "",
+            "onCreate": ""
           }
         ],
         "tabs": [],
         "lineWidth": "auto",
         "html": "",
-        "comments": ""
+        "comments": "",
+        "onValue": "",
+        "onCreate": ""
       }
     ],
     "tabs": [],
@@ -5575,6 +5708,9 @@
     "height": "auto",
     "visible": true,
     "html": "",
-    "comments": ""
+    "comments": "",
+    "onValue": "",
+    "hideMenu": false,
+    "onCreate": ""
   }
 }
